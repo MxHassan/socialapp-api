@@ -16,8 +16,8 @@ require("dotenv").config();
 mongoose.connect(process.env.MONGO_URL).then(() => {
   console.log("Connected to MongoDB");
 });
-app.use(express.static(__dirname + "/public"));
-app.use("/public/images", express.static(__dirname + "public/images"));
+// app.use(express.static(__dirname + "/public"));
+app.use("/images", express.static(__dirname + "public/images"));
 
 //middleware
 app.use(express.json());
