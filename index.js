@@ -9,6 +9,7 @@ const postRoute = require("./routes/posts");
 const multer = require("multer");
 const path = require("path");
 const cors = require("cors");
+const corsOptions = require("./config/corsOptions");
 
 require("dotenv").config();
 
@@ -19,7 +20,7 @@ app.use("/images", express.static(path.join(__dirname, "public/images")));
 
 //middleware
 app.use(express.json());
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(helmet());
 app.use(morgan("common"));
 const storage = multer.diskStorage({
